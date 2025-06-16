@@ -6,6 +6,12 @@ import RedButton from './redButton.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
+  const isLoading = false;
+  const user = {
+    name: 'Hedy Lamarr',
+    imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+    imageSize: 90,
+  };
 
   return (
     <>
@@ -18,10 +24,20 @@ function App() {
         </a>
       </div>
       <h1>Hallo Test </h1>
-     
+      <div>{isLoading ? <p>Loading...</p> : <h2>Fertig geladen</h2>}</div>
       <div>
           <RedButton />
       </div>
+        <p>{user.name}</p>
+        <img
+          className="avatar"
+          src={user.imageUrl}
+          alt={'Photo of ' + user.name}
+          style={{
+            width: user.imageSize,
+            height: user.imageSize
+          }}
+        />
     </>
   )
 }
